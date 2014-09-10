@@ -29,6 +29,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+# Fake it (data) til you make it
+gem 'ffaker'
+
+# Multithreaded web server
+gem 'puma'
+
 # Ember.js
 gem 'ember-rails'
 gem 'ember-source'

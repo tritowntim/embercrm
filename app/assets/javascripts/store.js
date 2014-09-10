@@ -1,3 +1,8 @@
+// Prepare all API requests
+DS.RESTAdapter.reopen({
+  namespace: 'api/v1'
+});
+
 App.Store = DS.Store.extend({
 
 });
