@@ -1,25 +1,29 @@
-<article id="lead">
-  <h1>{{model.fullName}}</h1>
-  <p><em>Name</em> {{model.fullName}}</p>
-  <p><em>Email</em> {{model.email}}</p>
-  <p><em>Phone</em> {{model.phone}}</p>
-  <p>
-    <label><em>Status</em></label>
-    {{view Ember.Select content=App.Lead.STATUSES value=model.status}}
-  </p>
-  <p>
-    <label><em>Notes</em>
-    <br>
-    {{view Ember.TextArea value=model.notes}}
-  </p>
-  <p>
-    <!-- action helper differs from tutorial -->
-    <input type="submit" value="Save Changes" {{action "saveChanges"}}></input>
-    {{#if showUnsavedMessage}}
-      <span class="unsaved">unsaved changes</span>
-    {{/if}}
-    {{#if isSaving}}
-      <span class="saving">saving changes...</span>
-    {{/if}}
-  </p>
-</article>
+{{outlet}}
+
+{{#unless isEditing}}
+  <article id="lead">
+    <h1>{{model.fullName}}{{link-to "edit" "lead.edit" model classNames="edit"}}</h1>
+    <p><em>Name</em> {{model.fullName}}</p>
+    <p><em>Email</em> {{model.email}}</p>
+    <p><em>Phone</em> {{model.phone}}</p>
+    <p>
+      <label><em>Status</em></label>
+      {{view Ember.Select content=App.Lead.STATUSES value=model.status}}
+    </p>
+    <p>
+      <label><em>Notes</em>
+      <br>
+      {{view Ember.TextArea value=model.notes}}
+    </p>
+    <p>
+      <!-- action helper differs from tutorial -->
+      <input type="submit" value="Save Changes" {{action "saveChanges"}}></input>
+      {{#if showUnsavedMessage}}
+        <span class="unsaved">unsaved changes</span>
+      {{/if}}
+      {{#if isSaving}}
+        <span class="saving">saving changes...</span>
+      {{/if}}
+    </p>
+  </article>
+{{/unless}}
