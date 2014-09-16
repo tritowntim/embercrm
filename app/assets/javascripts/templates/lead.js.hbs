@@ -15,5 +15,11 @@
   <p>
     <!-- action helper differs from tutorial -->
     <input type="submit" value="Save Changes" {{action "saveChanges"}}></input>
+    {{#if showUnsavedMessage}}
+      <span class="unsaved">unsaved changes</span>
+    {{/if}}
+    {{#if isSaving}}
+      <span class="saving">saving changes...</span>
+    {{/if}}
   </p>
 </article>
