@@ -1,6 +1,19 @@
 <article id="lead">
   <h1>{{model.fullName}}</h1>
-  <p>Name: {{model.fullName}}</p>
-  <p>Email: {{model.email}}</p>
-  <p>Phone: {{model.phone}}</p>
+  <p><em>Name</em> {{model.fullName}}</p>
+  <p><em>Email</em> {{model.email}}</p>
+  <p><em>Phone</em> {{model.phone}}</p>
+  <p>
+    <label><em>Status</em></label>
+    {{view Ember.Select content=App.Lead.STATUSES value=model.status}}
+  </p>
+  <p>
+    <label><em>Notes</em>
+    <br>
+    {{view Ember.TextArea value=model.notes}}
+  </p>
+  <p>
+    <!-- action helper differs from tutorial -->
+    <input type="submit" value="Save Changes" {{action "saveChanges"}}></input>
+  </p>
 </article>
